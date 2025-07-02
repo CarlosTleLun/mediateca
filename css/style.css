@@ -310,7 +310,7 @@ nav ul li a:hover {
 .subtitulo::after {
     content: "";
     display: block;
-    width: 300px;
+    width: 250px;
     height: 1px;
     background-color: #00bcd4;
     margin-top: 5px;
