@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mediateca Prepa 2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header id="main-header">
+      <div class="logos">
+        <a href="https://prepa2.enp.unam.mx/" target="_blank">
+          <img src="img/logos.png" alt="Escudos" />
+        </a>
+      </div>
+
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/mediatecaPreparatoria2"
+          target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/mediteca_enp2/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/channel/UCvV0c4ZHRnou3_kFC_OMLdQ"
+          target="_blank"
+          ><i class="fab fa-youtube"></i
+        ></a>
+      </div>
+    </header>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i> <span class="toggle-text">Menú</span>
+    </div>
+
+    <nav id="nav-menu">
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="#induccion">Inducción</a></li>
+        <li><a href="#encuadre">Encuadre</a></li>
+        <li><a href="#horarios">Horarios</a></li>
+        <li><a href="#talleres">Talleres</a></li>
+        <li><a href="#asesorias">Asesorias</a></li>
+        <li><a href="#asistencias">Asistencias</a></li>
+        <li><a href="#sitios">Sitios de Interés</a></li>
+      </ul>
+    </nav>
+    <section>
+      <!-- Carrusel -->
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <a href="https://ejemplo.com/seminario" target="_blank">
+            <img
+              src="img/seminario.jpeg"
+              alt="Imagen 1"
+              class="carousel-slide"
+            />
+          </a>
+          <a href="https://ejemplo.com/prepa" target="_blank">
+            <img src="img/prepa.jpg" alt="Imagen 2" class="carousel-slide" />
+          </a>
+          <a href="https://ejemplo.com/otro" target="_blank">
+            <img src="img/3.jpg" alt="Imagen 3" class="carousel-slide" />
+          </a>
+        </div>
+        <div class="carousel-indicators">
+          <span class="indicator active"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const track = document.querySelector(".carousel-track");
+      const indicators = document.querySelectorAll(".indicator");
+      const slides = document.querySelectorAll(".carousel-track a"); // <- Cambio importante
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+        indicators.forEach((dot, i) =>
+          dot.classList.toggle("active", i === currentIndex)
+        );
+      }
+
+      // Evento al hacer clic en los indicadores
+      indicators.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Auto-slide cada 8 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }, 8000);
+    </script>
+
+    <section id="cuadros">
+      <div class="heading-block">
+        <h1>Estudiantes</h1>
+      </div>
+      <div class="cuadros-grid">
+        <a href="#induccion" class="cuadro">
+          <img src="img/induccion.jpg" alt="Inducción" />
+          <div class="overlay">Inducción</div>
+        </a>
+        <a href="#encuadre" class="cuadro">
+          <img src="img/reglas.jpg" alt="Encuadre" />
+          <div class="overlay">Encuadre</div>
+        </a>
+        <a href="#horarios" class="cuadro">
+          <img src="img/horarios.jpg" alt="Horarios" />
+          <div class="overlay">Horarios</div>
+        </a>
+        <a href="#talleres" class="cuadro">
+          <img src="img/taller.jpg" alt="Talleres" />
+          <div class="overlay">Talleres</div>
+        </a>
+        <a href="#asesorias" class="cuadro">
+          <img src="img/cuadros.png" alt="Asesorías" />
+          <div class="overlay">Asesorías</div>
+        </a>
+        <a href="#asistencias" class="cuadro">
+          <img src="img/asistencias.jpg" alt="Asistencias" />
+          <div class="overlay">Asistencias</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Secciones individuales -->
+    <section id="induccion" class="seccion-detalle">
+      <h2>Inducción</h2>
+      <div>
+        <h2>Bachillerato</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Hk-IVxWngOw"
+            title="Video de ejemplo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+      <div>
+        <h2>Iniciación Universitaria</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Hk-IVxWngOw"
+            title="Video de ejemplo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="encuadre" class="seccion-detalle">
+      <h2>Encuadre</h2>
+      <p>Información sobre el encuadre de clases.</p>
+    </section>
+
+    <section id="horarios" class="seccion-detalle">
+      <h2>Horarios de Servicio</h2>
+      <section id="horarios-mediatecas" class="horarios-section">
+        <div class="horarios-grid">
+          <div class="horario-card">
+            <h3>Mediateca de Iniciación Universitaria</h3>
+            <p>
+              <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+              <strong>7:00 a 20:20 hrs</strong>
+            </p>
+          </div>
+          <div class="horario-card">
+            <h3>Mediateca de Bachillerato</h3>
+            <p>
+              <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+              <strong>7:00 a 20:20 hrs</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section id="talleres" class="seccion-detalle">
+      <h2>Talleres</h2>
+      <p>
+        Para revisar los talleres y materiales de cada idioma, da clic en el
+        idioma de tu preferencia
+      </p>
+      <section class="idiomas-section" style="padding: 80px 0">
+        <div class="tarjeta-idioma" style="--color: #f6f09e">
+          <div class="circulo-hover">Al</div>
+          <h4>ALEMÁN</h4>
+          <img src="img/idiomas/aleman.png" alt="Logo Alemán" />
+        </div>
+
+        <div class="tarjeta-idioma" style="--color: #bad0ff">
+          <div class="circulo-hover">Fr</div>
+          <h4>FRANCÉS</h4>
+          <img src="img/idiomas/frances.png" alt="Logo Francés" />
+        </div>
+
+        <div class="tarjeta-idioma" style="--color: #f1cae3">
+          <div class="circulo-hover">In</div>
+          <h4>INGLÉS</h4>
+          <img src="img/idiomas/ingles.png" alt="Logo Inglés" />
+        </div>
+
+        <div class="tarjeta-idioma" style="--color: #d4ffc6">
+          <div class="circulo-hover">It</div>
+          <h4>ITALIANO</h4>
+          <img src="img/idiomas/italiano.png" alt="Logo Italiano" />
+        </div>
+      </section>
+    </section>
+
+    <section id="asesorias" class="seccion-detalle">
+      <h2>Asesorías</h2>
+      <p>Consulta los horarios de asesorias.</p>
+      <div class="selector-container">
+        <select id="idioma" onchange="cargarHorarios()">
+          <option value="" disabled selected>Selecciona el idioma</option>
+          <option value="aleman">Alemán</option>
+          <option value="frances">Francés Iniciación</option>
+          <option value="italiano">Italiano</option>
+          <option value="ingles">Inglés Iniciación</option>
+        </select>
+      </div>
+
+      <div id="tabla-horarios"></div>
+      <script>
+        const horarios = {
+          frances: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "Andrés",
+                "12:00-12:50": "-",
+                "12:50-13:40": "Andrés",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Andrés",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          italiano: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "_",
+                "12:00-12:50": "-",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Viridiana",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          aleman: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "_",
+                "12:00-12:50": "-",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Viridiana",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          ingles: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "7:50-8:40": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "Horacio",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "15:20-16:10": "Nohemí",
+                "16:10-17:00": "Nohemí",
+                "17:00-17:50": "Nohemí",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "9:30-10:20": "Horacio",
+                "10:20-11:10": "Horacio",
+                "11:10-12:00": "Sandra",
+                "12:00-12:50": "Sandra",
+                "16:10-17:00": "Nora",
+                "17:00-17:50": "Nora",
+                "17:50-18:40": "Nora",
+              },
+              Miércoles: {
+                "8:40-9:30": "Horacio",
+                "15:20-16:10": "Nohemí",
+                "16:10-17:00": "Nohemí",
+                "17:00-17:50": "Nohemí/Daniel",
+                "17:50-18:40": "Daniel",
+                "18:40-19:30": "Daniel",
+              },
+              Jueves: {
+                "9:30-10:20": "Horacio",
+                "10:20-11:10": "Horacio",
+
+                "14:30-15:20": "Daniel",
+                "15:20-16:10": "Daniel",
+                "16:10-17:00": "Daniel",
+              },
+              Viernes: {
+                "9:30-10:20": "Horacio",
+                "11:10-12:00": "Horacio",
+                "14:30-15:20": "Nohemí",
+                "15:20-16:10": "Nohemí",
+                "17:00-17:50": "Daniel",
+              },
+            },
+          },
+        };
+
+        function cargarHorarios() {
+          const idioma = document.getElementById("idioma").value;
+          const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+          const tablaDiv = document.getElementById("tabla-horarios");
+          const horariosIdioma = horarios[idioma].asesores;
+
+          const todasHoras = new Set();
+          dias.forEach((dia) => {
+            const horas = horariosIdioma[dia];
+            if (horas) {
+              Object.keys(horas).forEach((hora) => todasHoras.add(hora));
+            }
+          });
+
+          const horasOrdenadas = Array.from(todasHoras).sort((a, b) => {
+            const extraerMinutos = (horaStr) => {
+              const horaInicio = horaStr.split("-")[0].trim(); // "7:00-7:50" → "7:00"
+              const [h, m] = horaInicio.split(":").map(Number);
+              return h * 60 + m;
+            };
+
+            return extraerMinutos(a) - extraerMinutos(b);
+          });
+
+          let html = "<table><thead><tr><th class='columna-hora'>Hora</th>";
+          dias.forEach((dia) => {
+            html += `<th class='encabezado-dia'>${dia}</th>`;
+          });
+          html += "</tr></thead><tbody>";
+
+          horasOrdenadas.forEach((hora) => {
+            html += `<tr><td class="columna-hora">${hora}</td>`;
+            dias.forEach((dia) => {
+              const nombre = horariosIdioma[dia]?.[hora];
+              if (nombre) {
+                html += `<td>${nombre}</td>`;
+              } else {
+                html += `<td>-</td>`;
+              }
+            });
+            html += "</tr>";
+          });
+
+          html += "</tbody></table>";
+          tablaDiv.innerHTML = html;
+          html += "</tbody></table>";
+          tablaDiv.innerHTML = html;
+
+          // Ahora que la tabla ya está en el DOM, se puede modificar
+          const thead = tablaDiv.querySelector("table thead");
+          thead.classList.remove("encabezado-frances", "encabezado-ingles");
+          if (idioma === "frances") {
+            thead.classList.add("encabezado-frances");
+          }
+          if (idioma === "italiano") {
+            thead.classList.add("encabezado-italiano");
+          }
+          if (idioma === "aleman") {
+            thead.classList.add("encabezado-aleman");
+          } else if (idioma === "ingles") {
+            thead.classList.add("encabezado-ingles");
+          }
+        }
+
+        cargarHorarios();
+      </script>
+    </section>
+
+    <section id="asistencias" class="seccion-detalle">
+      <h2>Asistencias</h2>
+      <p>Registro y control de asistencias.</p>
+    </section>
+
+    <section id="sitios" style="background-color: #f9f9f9">
+      <div class="container center clearfix">
+        <div class="heading-block">
+          <h1>Sitios de interés</h1>
+        </div>
+      </div>
+      <div id="sitios_de_interes" class="content-wrap">
+        <section class="page-section">
+          <div class="sitios-grid">
+            <a href="http://132.248.148.86/" target="_blank">
+              <img
+                src="img/prepas/prepa1.png"
+                alt="Mediateca ENP1"
+                title="Mediateca ENP 1"
+              />
+              <div class="prepa">Mediateca ENP-1</div>
+            </a>
+            <a
+              href="https://sites.google.com/view/mediateca-enp3/p%C3%A1gina-principal"
+              target="_blank"
+            >
+              <img
+                src="img/prepas/prepa3.png"
+                alt="Mediateca ENP3"
+                title="Mediateca ENP 3"
+              />
+              <div class="prepa">Mediateca ENP-3</div>
+            </a>
+            <a
+              href="http://mediateca.prepa4unam.net/sitios.php"
+              target="_blank"
+            >
+              <img
+                src="img/prepas/prepa4.png"
+                alt="Mediateca ENP4"
+                title="Mediateca ENP 4"
+              />
+              <div class="prepa">Mediateca ENP-4</div>
+            </a>
+            <a
+              href="https://mediatecaprepa5.wixsite.com/mediateca"
+              target="_blank"
+            >
+              <img
+                src="img/prepas/prepa5.png"
+                alt="Mediateca ENP5"
+                title="Mediateca ENP 5"
+              />
+              <div class="prepa">Mediateca ENP-5</div>
+            </a>
+            <a href="http://www.mediateca.prepa6.unam.mx/" target="_blank">
+              <img
+                src="img/prepas/prepa6.png"
+                alt="Mediateca ENP6"
+                title="Mediateca ENP 6"
+              />
+              <div class="prepa">Mediateca ENP-6</div>
+            </a>
+            <a
+              href="https://sites.google.com/enp.unam.mx/mediateca-prepa-7/inicio"
+              target="_blank"
+            >
+              <img
+                src="img/prepas/prepa7.png"
+                alt="Mediateca ENP7"
+                title="Mediateca ENP 7"
+              />
+              <div class="prepa">Mediateca ENP-7</div>
+            </a>
+            <a
+              href="https://sites.google.com/site/p8mediateca/"
+              target="_blank"
+            >
+              <img
+                src="img/prepas/prepa8.png"
+                alt="Mediateca ENP8"
+                title="Mediateca ENP 8"
+              />
+              <div class="prepa">Mediateca ENP-8</div>
+            </a>
+            <a href="http://www.prepa9.unam.mx/mediateca/" target="_blank">
+              <img
+                src="img/prepas/prepa9.png"
+                alt="Mediateca ENP9"
+                title="Mediateca ENP 9"
+              />
+              <div class="prepa">Mediateca ENP-9</div>
+            </a>
+            <a href="https://www.unaminternacional.unam.mx/" target="_blank">
+              <img
+                src="enp/dgeci.png"
+                alt="UNAM Internacional"
+                title="Dirección General de Cooperación e Internacionalización"
+              />
+            </a>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer class="footer-unam">
+    <div class="footer-content">
+     <div class="footer-texto">
+      <p><strong>Escuela Nacional Preparatoria 2</strong></p>
+      <p>
+        © Hecho en México, Universidad Nacional Autónoma de México (UNAM), todos los
+        derechos reservados 2025. Esta página puede ser reproducida con fines no lucrativos,
+        siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica.
+        De otra forma, requiere permiso previo por escrito de la institución.
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <button id="btn-creditos">Créditos</button>
+    </div>
+
+    <img src="img/firmaUNAM.png" alt="UNAM" class="footer-logo">
+  </div>
+</footer>
+
+<!-- Modal de créditos -->
+<div id="modal-creditos" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h3>Créditos de la página</h3>
+    <div class="creditos-separadores">
+  <p>Diseño y desarrollo: Isaias Castillo, Carlos Tlecuitl</p>
+  <p>Fotografias: Melissa García</p>
+  <p>Plantel 2 “Erasmo Castellanos Quinto”</p>
+</div>
+
+</div>
+
+  </div>
+</div>
+<script>
+  const btnCreditos = document.getElementById("btn-creditos");
+  const modal = document.getElementById("modal-creditos");
+  const spanClose = modal.querySelector(".close");
+
+  btnCreditos.addEventListener("click", () => {
+    modal.style.display = "block";
+  });
+
+  spanClose.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+
+    <script>
+      const header = document.getElementById("main-header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+      const toggleText = menuToggle.querySelector(".toggle-text");
+      const icon = menuToggle.querySelector("i");
+
+      // Función para alternar el menú
+      function toggleMenu() {
+        navMenu.classList.toggle("active");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-xmark");
+
+        if (navMenu.classList.contains("active")) {
+          toggleText.textContent = "Cerrar";
+        } else {
+          toggleText.textContent = "Menú";
+        }
+      }
+
+      menuToggle.addEventListener("click", toggleMenu);
+
+      // Cerrar el menú al hacer clic en un enlace
+      const navLinks = navMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          // Solo cierra si está abierto
+          if (navMenu.classList.contains("active")) {
+            toggleMenu();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
