@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/mediatk_st.png" type="image/png" />
+    <title>Mediateca Prepa 2</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header id="main-header">
+      <div class="logos">
+        <a href="https://prepa2.enp.unam.mx/" target="_blank">
+          <img src="img/logos.png" alt="Escudos" />
+        </a>
+      </div>
+
+      <div class="social-icons">
+        <a
+          href="https://www.facebook.com/mediatecaPreparatoria2"
+          target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/mediteca_enp2/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/channel/UCvV0c4ZHRnou3_kFC_OMLdQ"
+          target="_blank"
+          ><i class="fab fa-youtube"></i
+        ></a>
+      </div>
+    </header>
+
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i> <span class="toggle-text">Menú</span>
+    </div>
+
+   <nav id="nav-menu">
+  <ul>
+    <li><a href="index.html" class="icon-inicio">Inicio</a></li>
+    <li><a href="#induccion" class="icon-induccion">Inducción</a></li>
+    <li><a href="#encuadre" class="icon-encuadre">Encuadre</a></li>
+    <li><a href="#horarios" class="icon-horarios">Horarios de servicio</a></li>
+    <li><a href="#talleres" class="icon-talleres">Talleres</a></li>
+    <li><a href="#asesorias" class="icon-asesorias">Horarios de Asesorías</a></li>
+    <li><a href="#asistencias" class="icon-asistencias">Asistencias</a></li>
+    <li><a href="#sitios" class="icon-sitios">Materiales recomendados</a></li>
+  </ul>
+</nav>
+
+
+    <section>
+      <!-- Carrusel -->
+      <div class="carousel-container">
+        <div class="carousel-track">
+          <a href="https://ejemplo.com/seminario" target="_blank">
+            <img
+              src="img/seminario.jpeg"
+              alt="Imagen 1"
+              class="carousel-slide"
+            />
+          </a>
+          <a href="https://ejemplo.com/prepa" target="_blank">
+            <img src="img/prepa.jpg" alt="Imagen 2" class="carousel-slide" />
+          </a>
+          <a href="https://ejemplo.com/otro" target="_blank">
+            <img src="img/talleres/ejemplo2.png" alt="Imagen 3" class="carousel-slide" />
+          </a>
+           </a>
+          <a href="https://ejemplo.com/otro" target="_blank">
+            <img src="img/talleres/ejemplo.png" alt="Imagen 3" class="carousel-slide" />
+          </a>
+        </div>
+        <div class="carousel-indicators">
+          <span class="indicator active"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const track = document.querySelector(".carousel-track");
+      const indicators = document.querySelectorAll(".indicator");
+      const slides = document.querySelectorAll(".carousel-track a"); // <- Cambio importante
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      function updateCarousel() {
+        const offset = -currentIndex * 100;
+        track.style.transform = `translateX(${offset}%)`;
+        indicators.forEach((dot, i) =>
+          dot.classList.toggle("active", i === currentIndex)
+        );
+      }
+
+      // Evento al hacer clic en los indicadores
+      indicators.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          currentIndex = index;
+          updateCarousel();
+        });
+      });
+
+      // Auto-slide cada 8 segundos
+      setInterval(() => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }, 8000);
+    </script>
+
+    <section id="cuadros">
+      <div class="heading-block">
+        <h1>Estudiantes</h1>
+      </div>
+      <div class="cuadros-grid">
+        <a href="#induccion" class="cuadro">
+          <img src="img/induccion.jpg" alt="Inducción" />
+          <div class="overlay">Inducción</div>
+        </a>
+        <a href="#encuadre" class="cuadro">
+          <img src="img/reglas.jpg" alt="Encuadre" />
+          <div class="overlay">Encuadre</div>
+        </a>
+        <a href="#horarios" class="cuadro">
+          <img src="img/horarios.jpg" alt="Horarios" />
+          <div class="overlay">Horarios</div>
+        </a>
+        <a href="#talleres" class="cuadro">
+          <img src="img/taller.jpg" alt="Talleres" />
+          <div class="overlay">Talleres</div>
+        </a>
+        <a href="#asesorias" class="cuadro">
+          <img src="img/cuadros.png" alt="Asesorías" />
+          <div class="overlay">Asesorías</div>
+        </a>
+        <a href="#asistencias" class="cuadro">
+          <img src="img/asistencias.jpg" alt="Asistencias" />
+          <div class="overlay">Asistencias</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Secciones individuales -->
+    <section id="induccion" class="seccion-detalle">
+      <h2>Inducción</h2>
+      <div>
+        <h2>Bachillerato</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Hk-IVxWngOw"
+            title="Video de ejemplo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+      <div>
+        <h2>Iniciación Universitaria</h2>
+        <div class="video-container">
+          <iframe
+            src="https://www.youtube.com/embed/Hk-IVxWngOw"
+            title="Video de ejemplo"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="encuadre" class="seccion-detalle">
+      <h2>Encuadre</h2>
+      <p>Información sobre el encuadre de clases.</p>
+    </section>
+
+    <section id="horarios" class="seccion-detalle">
+      <h2>Horarios de Servicio</h2>
+      <section id="horarios-mediatecas" class="horarios-section">
+        <div class="horarios-grid">
+          <div class="horario-card">
+            <h3>Mediateca de Iniciación Universitaria</h3>
+            <p>
+              <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+              <strong>7:00 a 20:20 hrs</strong>
+            </p>
+          </div>
+          <div class="horario-card">
+            <h3>Mediateca de Bachillerato</h3>
+            <p>
+              <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+              <strong>7:00 a 20:20 hrs</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+   <section id="talleres" class="seccion-detalle">
+  <h2>Talleres</h2>
+  <p class="centrar">
+    Para revisar los talleres y materiales de cada idioma, da clic en el idioma de tu preferencia
+  </p>
+
+  <!-- Tarjetas -->
+  <section class="idiomas-section" style="padding: 80px 0">
+    <div class="tarjeta-idioma" style="--color: #f6f09e">
+      <div class="circulo-hover">Al</div>
+      <h4>ALEMÁN</h4>
+      <img src="img/idiomas/aleman.png" alt="Logo Alemán" />
+      <button class="mostrar-mas" data-idioma="aleman">Mostrar más</button>
+    </div>
+
+    <div class="tarjeta-idioma" style="--color: #bad0ff">
+      <div class="circulo-hover">Fr</div>
+      <h4>FRANCÉS</h4>
+      <img src="img/idiomas/frances.png" alt="Logo Francés" />
+      <button class="mostrar-mas" data-idioma="frances">Mostrar más</button>
+    </div>
+
+    <div class="tarjeta-idioma" style="--color: #f1cae3">
+      <div class="circulo-hover">In</div>
+      <h4>INGLÉS</h4>
+      <img src="img/idiomas/ingles.png" alt="Logo Inglés" />
+      <button class="mostrar-mas" data-idioma="ingles">Mostrar más</button>
+    </div>
+
+    <div class="tarjeta-idioma" style="--color: #d4ffc6">
+      <div class="circulo-hover">It</div>
+      <h4>ITALIANO</h4>
+      <img src="img/idiomas/italiano.png" alt="Logo Italiano" />
+      <button class="mostrar-mas" data-idioma="italiano">Mostrar más</button>
+    </div>
+  </section>
+
+  <section class="contenedor-info-talleres">
+
+  <div class="info-talleres-grupo oculto" id="info-aleman">
+    <h3 class="centrar">Talleres de Alemán</h3>
+    <div class="info-taller">
+      <p>Este taller de alemán ofrece actividades interactivas para reforzar tu comprensión del idioma.</p>
+      <img src="img/talleres/ejemplo.png" alt="Cartel Taller Alemán" />
+      <a href="https://ejemplo.com/taller-aleman" target="_blank">Ir al taller</a>
+    </div>
+  </div>
+
+  <div class="info-talleres-grupo oculto" id="info-frances">
+    <h3 class="centrar">Talleres de Francés</h3>
+    <div class="info-taller">
+      <p>Explora recursos visuales y auditivos para mejorar tu pronunciación.</p>
+      <img src="img/talleres/taller-frances.jpg" alt="Cartel Taller Francés" />
+      <a href="https://ejemplo.com/taller-frances" target="_blank">Ir al taller</a>
+    </div>
+    <div class="info-taller">
+      <p>Comprensión auditiva con canciones y videos.</p>
+      <img src="img/talleres/taller-frances2.jpg" alt="Cartel Francés 2" />
+      <a href="https://ejemplo.com/taller-frances2" target="_blank">Ir al taller</a>
+    </div>
+  </div>
+
+  <div class="info-talleres-grupo oculto" id="info-ingles">
+    <h3 class="centrar">Talleres de Inglés</h3>
+    <div class="info-taller">
+      <p>Juegos de vocabulario y listening.</p>
+      <img src="img/talleres/taller-ingles.jpg" alt="Cartel Taller Inglés" />
+      <a href="https://ejemplo.com/taller-ingles" target="_blank">Ir al taller</a>
+    </div>
+    <div class="info-taller">
+      <p>Lecturas interactivas y práctica escrita.</p>
+      <img src="img/talleres/taller-ingles2.jpg" alt="Cartel Inglés 2" />
+      <a href="https://ejemplo.com/taller-ingles2" target="_blank">Ir al taller</a>
+    </div>
+  </div>
+
+  <div class="info-talleres-grupo oculto" id="info-italiano">
+    <h3 class="centrar">Talleres de Italiano</h3>
+    <div class="info-taller">
+      <p>Descubre la cultura italiana mientras aprendes frases útiles para el día a día.</p>
+      <img src="img/talleres/taller-italiano.jpg" alt="Cartel Taller Italiano" />
+      <a href="https://ejemplo.com/taller-italiano" target="_blank">Ir al taller</a>
+    </div>
+  </div>
+
+</section>
+
+  </section>
+</section>
+
+
+
+    <section id="asesorias" class="seccion-detalle">
+      <h2>Horarios de Asesorías</h2>
+      <p class="centrar">Consulta los horarios de asesorias.</p>
+      <div class="selector-container">
+        <select id="idioma" onchange="cargarHorarios()">
+          <option value="" disabled selected>Selecciona el idioma</option>
+          <option value="aleman">Alemán</option>
+          <option value="frances">Francés Iniciación</option>
+          <option value="italiano">Italiano</option>
+          <option value="ingles">Inglés Iniciación</option>
+        </select>
+      </div>
+
+      <div id="tabla-horarios"></div>
+      <script>
+        const horarios = {
+          frances: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "Andrés",
+                "12:00-12:50": "-",
+                "12:50-13:40": "Andrés",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Andrés",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          italiano: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "_",
+                "12:00-12:50": "-",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Viridiana",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          aleman: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "-",
+                "10:20-11:10": "-",
+                "11:10-12:00": "_",
+                "12:00-12:50": "-",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "14:30-15:20": "Viridiana",
+                "16:10-17:00": "-",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:00-17:50": "Catalina",
+              },
+              Miércoles: {
+                "7:50-8:40": "Andrés",
+                "11:10-12:00": "Andrés",
+                "14:30-15:20": "Catalina/Andrés",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Jueves: {
+                "14:30-15:20": "Catalina",
+                "15:20-16:10": "Catalina",
+                "16:10-17:00": "Catalina",
+                "17:50-18:40": "Catalina",
+                "18:40-19:30": "Catalina",
+              },
+              Viernes: {},
+            },
+          },
+          ingles: {
+            asesores: {
+              Lunes: {
+                "7:00-7:50": "-",
+                "7:50-8:40": "-",
+                "8:40-9:30": "-",
+                "9:30-10:20": "Horacio",
+                "12:50-13:40": "-",
+                "13:40-14:30": "-",
+                "15:20-16:10": "Nohemí",
+                "16:10-17:00": "Nohemí",
+                "17:00-17:50": "Nohemí",
+                "19:30-20:20": "-",
+              },
+              Martes: {
+                "9:30-10:20": "Horacio",
+                "10:20-11:10": "Horacio",
+                "11:10-12:00": "Sandra",
+                "12:00-12:50": "Sandra",
+                "16:10-17:00": "Nora",
+                "17:00-17:50": "Nora",
+                "17:50-18:40": "Nora",
+              },
+              Miércoles: {
+                "8:40-9:30": "Horacio",
+                "15:20-16:10": "Nohemí",
+                "16:10-17:00": "Nohemí",
+                "17:00-17:50": "Nohemí/Daniel",
+                "17:50-18:40": "Daniel",
+                "18:40-19:30": "Daniel",
+              },
+              Jueves: {
+                "9:30-10:20": "Horacio",
+                "10:20-11:10": "Horacio",
+
+                "14:30-15:20": "Daniel",
+                "15:20-16:10": "Daniel",
+                "16:10-17:00": "Daniel",
+              },
+              Viernes: {
+                "9:30-10:20": "Horacio",
+                "11:10-12:00": "Horacio",
+                "14:30-15:20": "Nohemí",
+                "15:20-16:10": "Nohemí",
+                "17:00-17:50": "Daniel",
+              },
+            },
+          },
+        };
+
+        function cargarHorarios() {
+          const idioma = document.getElementById("idioma").value;
+          const dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes"];
+          const tablaDiv = document.getElementById("tabla-horarios");
+          const horariosIdioma = horarios[idioma].asesores;
+
+          const todasHoras = new Set();
+          dias.forEach((dia) => {
+            const horas = horariosIdioma[dia];
+            if (horas) {
+              Object.keys(horas).forEach((hora) => todasHoras.add(hora));
+            }
+          });
+
+          const horasOrdenadas = Array.from(todasHoras).sort((a, b) => {
+            const extraerMinutos = (horaStr) => {
+              const horaInicio = horaStr.split("-")[0].trim(); // "7:00-7:50" → "7:00"
+              const [h, m] = horaInicio.split(":").map(Number);
+              return h * 60 + m;
+            };
+
+            return extraerMinutos(a) - extraerMinutos(b);
+          });
+
+          let html = "<table><thead><tr><th class='columna-hora'>Hora</th>";
+          dias.forEach((dia) => {
+            html += `<th class='encabezado-dia'>${dia}</th>`;
+          });
+          html += "</tr></thead><tbody>";
+
+          horasOrdenadas.forEach((hora) => {
+            html += `<tr><td class="columna-hora">${hora}</td>`;
+            dias.forEach((dia) => {
+              const nombre = horariosIdioma[dia]?.[hora];
+              if (nombre) {
+                html += `<td>${nombre}</td>`;
+              } else {
+                html += `<td>-</td>`;
+              }
+            });
+            html += "</tr>";
+          });
+
+          html += "</tbody></table>";
+          tablaDiv.innerHTML = html;
+          html += "</tbody></table>";
+          tablaDiv.innerHTML = html;
+
+          // Ahora que la tabla ya está en el DOM, se puede modificar
+          const thead = tablaDiv.querySelector("table thead");
+          thead.classList.remove("encabezado-frances", "encabezado-ingles");
+          if (idioma === "frances") {
+            thead.classList.add("encabezado-frances");
+          }
+          if (idioma === "italiano") {
+            thead.classList.add("encabezado-italiano");
+          }
+          if (idioma === "aleman") {
+            thead.classList.add("encabezado-aleman");
+          } else if (idioma === "ingles") {
+            thead.classList.add("encabezado-ingles");
+          }
+        }
+
+        cargarHorarios();
+      </script>
+    </section>
+
+   <section id="asistencias" class="seccion-detalle">
+  <h2>Asistencias</h2>
+  <p class="centrar">Registro y control de asistencias.</p>
+
+  <form id="form-busqueda" class="form-busqueda">
+    <div class="input-con-icono">
+      <input 
+  type="text" 
+  name="num_cuenta" 
+  placeholder="Ingresar número de cuenta" 
+  required 
+  pattern="\d{1,10}" 
+  maxlength="10"
+  title="Ingresa solo números (máximo 10 dígitos)">
+
+      <span class="icono-busqueda">&#128269;</span>
+    </div>
+    <button type="submit">Buscar</button>
+
+    <div id="mensaje-aviso" class="letrero-aviso oculto">
+      ⚠️ <strong>Sistema en mantenimiento:</strong> La búsqueda de asistencias aún no está disponible.
+    </div>
+  </form>
+</section>
+
+
+
+<script>
+  document.getElementById('form-busqueda').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const mensaje = document.getElementById('mensaje-aviso');
+    mensaje.classList.remove('oculto');
+  });
+</script>
+
+
+   <section id="sitios">
+    <div class="container center clearfix">
+        <div class="heading-block">
+            <h1>Materiales Recomendados</h1>
+        </div>
+        <ul>
+            <li><a href="#">Guía para preparar exámenes extraordinarios</a></li>
+            <li><a href="#">Libros digitales para aprender francés</a></li>
+            <li><a href="#">Apps sugeridas para practicar inglés</a></li>
+        </ul>
+    </div>
+</section>
+      </div>
+    </section>
+
+    <footer class="footer-unam">
+    <div class="footer-content">
+     <div class="footer-texto">
+      <p><strong>Escuela Nacional Preparatoria 2</strong></p>
+      <p>
+        © Hecho en México, Universidad Nacional Autónoma de México (UNAM), todos los
+        derechos reservados 2025. Esta página puede ser reproducida con fines no lucrativos,
+        siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica.
+        De otra forma, requiere permiso previo por escrito de la institución.
+      </p>
+    </div>
+
+    <div class="footer-creditos">
+      <button id="btn-creditos">Créditos</button>
+    </div>
+
+    <img src="img/firmaUNAM.png" alt="UNAM" class="footer-logo">
+  </div>
+</footer>
+
+<!-- Modal de créditos -->
+<div id="modal-creditos" class="modal">
+  <div class="modal-content">
+    <h3>Créditos de la página</h3>
+    <div class="creditos-separadores">
+      <p>Diseño y desarrollo: Isaias Castillo, Carlos Tlecuitl</p>
+      <p>Fotografías: Melissa García</p>
+      <p>Plantel 2 “Erasmo Castellanos Quinto”</p>
+    </div>
+    <button id="cerrar-modal" class="btn-cerrar">Cerrar</button>
+  </div>
+</div>
+    <script src="js/menu.js"></script>
+    <script src="js/talleres.js"></script>
+    <script src="js/credits.js"></script>
+
+  </body>
+</html>
