@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/mediatk_st.png" type="image/png" />
+    <title>Mediateca Prepa 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <header id="main-header">
+        <div class="logos">
+            <a href="https://prepa2.enp.unam.mx/" target="_blank">
+                <img src="img/logos.png" alt="Escudos" class="logo-desktop" />
+                <img src="img/logo-movil.png" alt="Escudo móvil" class="logo-mobile" />
+            </a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/mediatecaPreparatoria2" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/mediteca_enp2/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCvV0c4ZHRnou3_kFC_OMLdQ" target="_blank"><i
+                    class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i> <span class="toggle-text">Menú</span>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#induccion">Inducción</a></li>
+            <li><a href="#encuadre">Encuadre</a></li>
+            <li><a href="#horarios">Horarios de servicio</a></li>
+            <li><a href="#talleres">Talleres</a></li>
+            <li><a href="#asesorias">Asesorías</a></li>
+            <li><a href="#asistencias">Asistencias</a></li>
+            <li><a href="#sitios">Materiales recomendados</a></li>
+        </ul>
+    </nav>
+
+
+    <section>
+        <!-- Carrusel -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 1" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 2" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 3" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 4" class="carousel-slide" />
+                </a>
+            </div>
+
+            <!-- Botones de navegación -->
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script>
+        const track = document.querySelector(".carousel-track");
+        const indicators = document.querySelectorAll(".indicator");
+        const slides = document.querySelectorAll(".carousel-track a");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoSlide;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            indicators.forEach((dot, i) =>
+                dot.classList.toggle("active", i === currentIndex)
+            );
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        // Eventos botones
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        // Eventos indicadores
+        indicators.forEach((dot, index) => {
+            dot.addEventListener("click", () => goToSlide(index));
+        });
+
+        // Auto-slide
+        function startAutoSlide() {
+            autoSlide = setInterval(nextSlide, 8000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+    </script>
+
+
+    <section id="cuadros">
+        <div class="heading-block">
+            <h1>Estudiantes</h1>
+        </div>
+        <div class="cuadros-grid">
+            <a href="#induccion" class="cuadro">
+                <img src="img/induccion.jpg" alt="Inducción" />
+                <div class="overlay">Inducción</div>
+            </a>
+            <a href="#encuadre" class="cuadro">
+                <img src="img/reglas.jpg" alt="Encuadre" />
+                <div class="overlay">Encuadre</div>
+            </a>
+            <a href="#horarios" class="cuadro">
+                <img src="img/horarios.jpg" alt="Horarios" />
+                <div class="overlay">Horarios</div>
+            </a>
+            <a href="#talleres" class="cuadro">
+                <img src="img/taller.jpg" alt="Talleres" />
+                <div class="overlay">Talleres</div>
+            </a>
+            <a href="#asesorias" class="cuadro">
+                <img src="img/cuadros.png" alt="Asesorías" />
+                <div class="overlay">Asesorías</div>
+            </a>
+            <a href="#asistencias" class="cuadro">
+                <img src="img/asistencias.jpg" alt="Asistencias" />
+                <div class="overlay">Asistencias</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Secciones individuales -->
+    <section id="induccion" class="seccion-detalle">
+        <h2>Inducción</h2>
+        <div>
+            <p>
+                <i class="fas fa-user-graduate"></i> <strong>La fase de inducción</strong> te preparará para trabajar de
+                manera autónoma en la Mediateca.<br><br>
+            </p>
+            <p style="text-align: justify;">Te ayudaremos a conocer tu estilo de aprendizaje y aprender de manera
+                autodirigida. Es importante que sepas
+                que este conocimiento te ayudará a estudiar todas las materias e incluso todas las actividades durante
+                tu
+                vida sin importar si son de la escuela o no. Para la fase de inducción, debes primero asistir a la
+                plática
+                en la Mediateca en donde se explican las actividades que se realizan ahí. Después de la plática, debes
+                realizar el cuestionario correspondiente al nivel de idioma. Al terminar las sesiones de inducción, las
+                próximas sesiones serán con el asesor con el que coincidas tanto en hora como en día, para esto revisa
+                el
+                horario de asesores. Estas actividades te ayudarán a utilizar los recursos de la Mediateca correctamente
+                para que saques el mayor provecho. Recuerda que la Mediateca es para ti.</p>
+
+            <p class="welcome centrar">¡Bienvenido a la Mediateca de la Prepa 2, ciclo escolar 2025-2026!</p>
+        </div>
+        <!--
+        <div>
+            <h2>Bachillerato</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Hk-IVxWngOw" title="Video de ejemplo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+        <div>-->
+
+    </section>
+
+    <section id="encuadre" class="seccion-detalle">
+        <h2>Encuadre</h2>
+        <p>Información sobre el encuadre de clases.</p>
+    </section>
+
+    <section id="horarios" class="seccion-detalle">
+        <h2>Horarios de Servicio</h2>
+        <section id="horarios-mediatecas" class="horarios-section">
+            <div class="horarios-grid">
+                <div class="horario-card">
+                    <h3>Mediateca de Iniciación Universitaria</h3>
+                    <p>
+                        <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+                        <strong>7:00 a 20:20 hrs</strong>
+                    </p>
+                </div>
+                <div class="horario-card">
+                    <h3>Mediateca de Bachillerato</h3>
+                    <p>
+                        <i class="fa-regular fa-clock"></i> Lunes a Viernes:<br />
+                        <strong>7:00 a 20:20 hrs</strong>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="talleres" class="seccion-detalle">
+        <h2>Talleres</h2>
+        <p class="centrar">
+            Para revisar los talleres y materiales de cada idioma, da clic en el idioma de tu preferencia
+        </p>
+
+        <!-- Tarjetas -->
+        <section class="idiomas-section" style="padding: 80px 0">
+            <div class="tarjeta-idioma" style="--color: #f6f09e">
+                <div class="circulo-hover">Al</div>
+                <h4>ALEMÁN</h4>
+                <img src="img/idiomas/aleman.png" alt="Logo Alemán" />
+                <button class="mostrar-mas" data-idioma="aleman">Mostrar más</button>
+            </div>
+
+            <div class="tarjeta-idioma" style="--color: #bad0ff">
+                <div class="circulo-hover">Fr</div>
+                <h4>FRANCÉS</h4>
+                <img src="img/idiomas/frances.png" alt="Logo Francés" />
+                <button class="mostrar-mas" data-idioma="frances">Mostrar más</button>
+            </div>
+
+            <div class="tarjeta-idioma" style="--color: #f1cae3">
+                <div class="circulo-hover">In</div>
+                <h4>INGLÉS</h4>
+                <img src="img/idiomas/ingles.png" alt="Logo Inglés" />
+                <button class="mostrar-mas" data-idioma="ingles">Mostrar más</button>
+            </div>
+
+            <div class="tarjeta-idioma" style="--color: #d4ffc6">
+                <div class="circulo-hover">It</div>
+                <h4>ITALIANO</h4>
+                <img src="img/idiomas/italiano.png" alt="Logo Italiano" />
+                <button class="mostrar-mas" data-idioma="italiano">Mostrar más</button>
+            </div>
+        </section>
+
+        <section class="contenedor-info-talleres">
+
+            <div class="info-talleres-grupo oculto" id="info-aleman">
+                <h3 class="centrar">Talleres de Alemán</h3>
+                <section class="curso-container">
+                    <div class="curso-video">
+                        <img src="img/talleres/aleman-banner.png" alt="Vista previa del curso">
+                        <span class="curso-preview">Vista previa de este curso</span>
+                    </div>
+
+                    <div class="curso-info">
+                        <h2>Curso Básico de Alemán</h2>
+                        <p>
+                            Descripción del taller o curso
+                        </p>
+                        <p class="curso-creador">Creado por <a>Asesor 1</a></p>
+                        <p class="curso-actualizacion">Fecha del taller: 7/2024</p>
+                        <p class="curso-idioma">Horario: 12:00</p>
+                        <p>Lugar: LL01</p>
+                        <a href="#" class="btn-prueba">Inscribirse</a>
+
+                    </div>
+                </section>
+                <section class="curso-container">
+                    <div class="curso-video">
+                        <img src="img/talleres/aleman-banner.png" alt="Vista previa del curso">
+                        <span class="curso-preview">Vista previa de este curso</span>
+                    </div>
+
+                    <div class="curso-info">
+                        <h2>Curso Básico de Alemán 2</h2>
+                        <p>
+                            Descripción del taller o curso
+                        </p>
+                        <p class="curso-creador">Creado por <a>Asesor 1</a></p>
+                        <p class="curso-actualizacion">Fecha del taller: 7/2024</p>
+                        <p class="curso-idioma">Horario: 12:00</p>
+                        <p>Lugar: LL01</p>
+                        <a href="#" class="btn-prueba">Inscribirse</a>
+
+                    </div>
+                </section>
+            </div>
+
+            <div class="info-talleres-grupo oculto" id="info-frances">
+                <h3 class="centrar">Talleres de Francés</h3>
+                <section class="curso-container">
+                    <div class="curso-video">
+                        <img src="img/talleres/aleman-banner.png" alt="Vista previa del curso">
+                        <span class="curso-preview">Vista previa de este curso</span>
+                    </div>
+
+                    <div class="curso-info">
+                        <h2>Curso Básico de Francés</h2>
+                        <p>
+                            Descripción del taller o curso
+                        </p>
+                        <p class="curso-creador">Creado por <a>Asesor 2</a></p>
+                        <p class="curso-actualizacion">Fecha del taller: 7/2024</p>
+                        <p class="curso-idioma">Horario: 12:00</p>
+                        <p>Lugar: LL01</p>
+                        <a href="#" class="btn-prueba">Inscribirse</a>
+
+                    </div>
+                </section>
+
+
+            </div>
+
+            <div class="info-talleres-grupo oculto" id="info-ingles">
+                <h3 class="centrar">Talleres de Inglés</h3>
+
+            </div>
+
+            <div class="info-talleres-grupo oculto" id="info-italiano">
+                <h3 class="centrar">Talleres de Italiano</h3>
+
+            </div>
+
+        </section>
+
+    </section>
+    </section>
+
+
+
+    <section id="asesorias" class="seccion-detalle">
+        <h2>Asesorías</h2>
+        <p>Descarga aquí el plan de trabajo y bitacora que deberás utilizar durante tu trabajo
+            en Mediateca.</p>
+        <div class="descargas">
+            <a href="docs/Bitacora_de_trabajo.pdf" target="_blank" download class="card">
+                <img src="img/pdf.png" alt="IU" class="card-img">
+                <span class="card-text">⬇️ Descarga Plan de trabajo y Bitácora Iniciación Universitaria</span>
+            </a>
+
+            <a href="docs/Bitacora_de_trabajo_prepa.pdf" target="_blank" download class="card">
+                <img src="img/pdf.png" alt="Bachillerato" class="card-img">
+                <span class="card-text">⬇️ Descarga Plan de trabajo y Bitácora Preparatoria</span>
+            </a>
+        </div>
+        <p>En esta sección podrás revisar los horarios en que se imparten asesorías en la mediateca, para visualizarlos,
+            da clic en cada idioma.</p><br>
+        <p class="centrar" style="font-size: 1.4rem;"><strong>Consulta los horarios de asesorias de Iniciación y de
+                Bachillerato.</strong></p><br>
+        <div class="selector-container">
+            <select id="idioma">
+                <option value="" disabled selected>Selecciona sección</option>
+                <option value="ini">Iniciación Universitaria</option>
+                <option value="prepa">Bachillerato</option>
+            </select>
+        </div>
+
+        <div class="horarios-asesor" id="horariosAsesor">
+            <!-- Aquí se insertará el Canva dinámicamente -->
+        </div>
+
+        <script>
+            const select = document.getElementById('idioma');
+            const contenedor = document.getElementById('horariosAsesor');
+
+            // Objeto con los enlaces de Canva para cada opción
+            const canvaLinks = {
+                ini: 'https://www.canva.com/design/DAGOWuUgwjw/p-CR9BHctB222rRbIRTIhQ/view?embed',
+                prepa: 'https://www.canva.com/design/OTROLINK/view?embed' // reemplaza con tu link real
+            };
+
+            select.addEventListener('change', function () {
+                const value = this.value;
+
+                if (canvaLinks[value]) {
+                    contenedor.innerHTML = `
+                <div style="position: relative; width: 100%; height: 0; padding-top: 50%;
+                            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em;
+                            margin-bottom: 0.9em; overflow: hidden; border-radius: 8px; will-change: transform;">
+                    <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;"
+                        src="${canvaLinks[value]}" allowfullscreen="allowfullscreen" allow="fullscreen">
+                    </iframe>
+                </div>
+                <a href="${canvaLinks[value].replace('/view?embed', '/view?utm_content=DAGOWuUgwjw&utm_campaign=designshare&utm_medium=embeds&utm_source=link')}" 
+                   target="_blank" rel="noopener">
+                    Horario de atención asesores de ${value === 'ini' ? 'Iniciación Universitaria' : 'Bachillerato'}
+                </a>
+            `;
+                }
+            });
+        </script>
+
+
+
+
+
+
+    </section>
+    <section>
+
+
+        <section id="asistencias" class="seccion-detalle">
+            <h2>Asistencias</h2>
+            <p class="centrar">Registro y control de asistencias.</p>
+
+            <form id="form-busqueda" class="form-busqueda">
+                <div class="input-con-icono">
+                    <input type="text" name="num_cuenta" placeholder="Ingresar número de cuenta" required
+                        pattern="\d{1,10}" maxlength="10" title="Ingresa solo números (máximo 10 dígitos)">
+
+                    <span class="icono-busqueda">&#128269;</span>
+                </div>
+                <button type="submit">Buscar</button>
+
+                <div id="mensaje-aviso" class="letrero-aviso oculto">
+                    ⚠️ <strong>Sistema en mantenimiento:</strong> La búsqueda de asistencias aún no está disponible.
+                </div>
+            </form>
+        </section>
+
+
+
+        <script>
+            document.getElementById('form-busqueda').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const mensaje = document.getElementById('mensaje-aviso');
+                mensaje.classList.remove('oculto');
+            });
+        </script>
+
+
+        <section id="sitios">
+            <div class="container center clearfix">
+                <div class="heading-block">
+                    <h1>Materiales Recomendados</h1>
+                </div>
+                <ul>
+                    <li><a href="#">Guía para preparar exámenes extraordinarios</a></li>
+                    <li><a href="#">Libros digitales para aprender francés</a></li>
+                    <li><a href="#">Apps sugeridas para practicar inglés</a></li>
+                </ul>
+            </div>
+        </section>
+        </div>
+    </section>
+
+    <footer class="footer-unam">
+        <div class="footer-content">
+            <div class="footer-texto">
+                <p><strong>Escuela Nacional Preparatoria 2</strong></p>
+                <p>
+                    © Hecho en México, Universidad Nacional Autónoma de México (UNAM), todos los derechos reservados
+                    2025. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se
+                    cite la fuente completa y su dirección electrónica. De
+                    otra forma, requiere permiso previo por escrito de la institución.
+                </p><br>
+                <p>
+                    <a href="http://prepa2.unam.mx/docs/Aviso_privacidad_simplificado.pdf" target="_blank" class="aviso-enlace">Aviso de privacidad Simplificado</a>
+                </p>
+            </div>
+
+            <div class="footer-creditos">
+                <button id="btn-creditos">Créditos</button>
+            </div>
+
+            <img src="img/firmaUNAM.png" alt="UNAM" class="footer-logo">
+        </div>
+    </footer>
+
+    <!-- Modal de créditos -->
+    <div id="modal-creditos" class="modal">
+        <div class="modal-content">
+            <h3>Créditos de la página</h3>
+            <div class="creditos-separadores">
+                <p>Diseño y desarrollo: Isaias Castillo, Carlos Tlecuitl</p>
+                <p>Fotografías: </p>
+                <p>Plantel 2 “Erasmo Castellanos Quinto”</p>
+            </div>
+            <button id="cerrar-modal" class="btn-cerrar">Cerrar</button>
+        </div>
+    </div>
+    <script src="js/menu.js"></script>
+    <script src="js/talleres.js"></script>
+    <script src="js/credits.js"></script>
+
+</body>
+
+</html>
+
+</html>

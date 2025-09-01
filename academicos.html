@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/mediatk_st.png" type="image/png" />
+    <title>Mediateca Prepa 2</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <header id="main-header">
+        <div class="logos">
+            <a href="https://prepa2.enp.unam.mx/" target="_blank">
+                <img src="img/logos.png" alt="Escudos" class="logo-desktop" />
+                <img src="img/logo-movil.png" alt="Escudo móvil" class="logo-mobile" />
+            </a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/mediatecaPreparatoria2" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/mediteca_enp2/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/channel/UCvV0c4ZHRnou3_kFC_OMLdQ" target="_blank"><i
+                    class="fab fa-youtube"></i></a>
+        </div>
+    </header>
+
+    <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i> <span class="toggle-text">Menú</span>
+    </div>
+
+    <nav id="nav-menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="eventos">Eventos</a></li>
+            <li><a href="#sitios">Sitios de Interés</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <!-- Carrusel -->
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <a href="https://ejemplo.com/seminario" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 1" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 2" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 3" class="carousel-slide" />
+                </a>
+                <a href="https://ejemplo.com/prepa" target="_blank">
+                    <img src="img/simposioXV.jpeg" alt="Imagen 4" class="carousel-slide" />
+                </a>
+            </div>
+
+            <!-- Botones de navegación -->
+            <button class="carousel-btn prev">&#10094;</button>
+            <button class="carousel-btn next">&#10095;</button>
+
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <script>
+        const track = document.querySelector(".carousel-track");
+        const indicators = document.querySelectorAll(".indicator");
+        const slides = document.querySelectorAll(".carousel-track a");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoSlide;
+
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            track.style.transform = `translateX(${offset}%)`;
+            indicators.forEach((dot, i) =>
+                dot.classList.toggle("active", i === currentIndex)
+            );
+        }
+
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoSlide();
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
+
+        // Eventos botones
+        nextBtn.addEventListener("click", nextSlide);
+        prevBtn.addEventListener("click", prevSlide);
+
+        // Eventos indicadores
+        indicators.forEach((dot, index) => {
+            dot.addEventListener("click", () => goToSlide(index));
+        });
+
+        // Auto-slide
+        function startAutoSlide() {
+            autoSlide = setInterval(nextSlide, 8000);
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            startAutoSlide();
+        }
+
+        startAutoSlide();
+    </script>
+
+    <section class="eventos-container">
+
+        <div class="banner-principal">
+            <div class="evento-banner">
+                <img src="img/simposioXV.jpeg" alt="Vista previa del curso">
+            </div>
+            <div class="curso-info">
+                <h2>Simposio de Lenguas</h2>
+                <p class="descripcion">
+                    15° Simposio para el mejoramiento de la enseñanza y el aprendizaje de las lenguas
+                </p>
+                <p class="eventos-fechas">Fechas: <a>2026</a></p>
+                <a href="http://132.248.92.227/simposiolenguas.enp2.unam.mx/" target="_blank"
+                    class="btn-eventos">Visitar</a>
+            </div>
+        </div>
+
+        <div class="banner-principal">
+            <div class="evento-banner">
+                <img src="img/seminario.jpg" alt="Vista previa del curso">
+            </div>
+            <div class="curso-info">
+                <h2>Seminario Permanente de Lenguas</h2>
+                <p class="descripcion">
+                    La Dirección de la Escuela Nacional Preparatoria plantel 2, Erasmo Castellanos Quinto, a través de
+                    la Secretaría Académica y la Coordinación de mediateca y laboratorios multimedia, invita a la
+                    comunidad académica a participar en el Seminario permanente de lengua
+                </p>
+                <p class="eventos-fechas">Fechas: <a>2025-2026</a></p>
+                <a href="https://www.youtube.com/@seminariopermanentedelenguas" target="_blank" class="btn-eventos">Visitar</a>
+            </div>
+        </div>
+
+        <div class="banner-principal">
+            <div class="evento-banner">
+                <img src="img/talleres/aleman-banner.png" alt="Vista previa del curso">
+            </div>
+            <div class="curso-info">
+                <h2>Otro</h2>
+                <p class="descripcion">
+                    15° Simposio para el mejoramiento de la enseñanza y el aprendizaje de las lenguas
+                </p>
+                <p class="eventos-fechas">Fechas: <a>?</a></p>
+                <a href="#" target="_blank" class="btn-eventos">Visitar</a>
+            </div>
+        </div>
+
+    </section>
+    <section id="sitios">
+            <div class="container center clearfix">
+                <div class="heading-block">
+                    <h1>Materiales Recomendados</h1>
+                </div>
+                <ul>
+                    <li><a href="#">Guía para preparar exámenes extraordinarios</a></li>
+                    <li><a href="#">Libros digitales para aprender francés</a></li>
+                    <li><a href="#">Apps sugeridas para practicar inglés</a></li>
+                </ul>
+            </div>
+        </section>
+        </div>
+    </section>
+    <section id="sitios" style="background-color: #f9f9f9;">
+        <div class="container center clearfix">
+            <div class="heading-block">
+                <h1>Sitios de interés</h1>
+            </div>
+        </div>
+        <div id="sitios_de_interes" class="content-wrap">
+            <section class="page-section">
+                <div class="sitios-grid">
+                    <a href="http://132.248.148.86/" target="_blank">
+                        <img src="img/prepas/prepa1.png" alt="Mediateca ENP1" title="Mediateca ENP 1" />
+                        <div class="prepa">Mediateca ENP-1</div>
+                    </a>
+                    <a href="https://sites.google.com/view/mediateca-enp3/p%C3%A1gina-principal" target="_blank">
+                        <img src="img/prepas/prepa3.png" alt="Mediateca ENP3" title="Mediateca ENP 3" />
+                        <div class="prepa">Mediateca ENP-3</div>
+                    </a>
+                    <a href="http://mediateca.prepa4unam.net/sitios.php" target="_blank">
+                        <img src="img/prepas/prepa4.png" alt="Mediateca ENP4" title="Mediateca ENP 4" />
+                        <div class="prepa">Mediateca ENP-4</div>
+                    </a>
+                    <a href="https://mediatecaprepa5.wixsite.com/mediateca" target="_blank">
+                        <img src="img/prepas/prepa5.png" alt="Mediateca ENP5" title="Mediateca ENP 5" />
+                        <div class="prepa">Mediateca ENP-5</div>
+                    </a>
+                    <a href="http://www.mediateca.prepa6.unam.mx/" target="_blank">
+                        <img src="img/prepas/prepa6.png" alt="Mediateca ENP6" title="Mediateca ENP 6" />
+                        <div class="prepa">Mediateca ENP-6</div>
+                    </a>
+                    <a href="https://mediatecaenp7.wixsite.com/menp7" target="_blank">
+                        <img src="img/prepas/prepa7.png" alt="Mediateca ENP7" title="Mediateca ENP 7" />
+                        <div class="prepa">Mediateca ENP-7</div>
+                    </a>
+                    <a href="https://sites.google.com/site/p8mediateca/" target="_blank">
+                        <img src="img/prepas/prepa8.png" alt="Mediateca ENP8" title="Mediateca ENP 8" />
+                        <div class="prepa">Mediateca ENP-8</div>
+                    </a>
+                    <a href="http://www.prepa9.unam.mx/mediateca/" target="_blank">
+                        <img src="img/prepas/prepa9.png" alt="Mediateca ENP9" title="Mediateca ENP 9" />
+                        <div class="prepa">Mediateca ENP-9</div>
+                    </a>
+
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+    <footer class="footer-unam">
+        <div class="footer-content">
+            <div class="footer-texto">
+                <p><strong>Escuela Nacional Preparatoria 2</strong></p>
+                <p>
+                    © Hecho en México, Universidad Nacional Autónoma de México (UNAM), todos los
+                    derechos reservados 2025. Esta página puede ser reproducida con fines no lucrativos,
+                    siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica.
+                    De otra forma, requiere permiso previo por escrito de la institución.
+                </p><br>
+                <p>
+                    <a href="http://prepa2.unam.mx/docs/Aviso_privacidad_simplificado.pdf" target="_blank" class="aviso-enlace">Aviso de privacidad Simplificado</a>
+                </p>
+            </div>
+
+            <div class="footer-creditos">
+                <button id="btn-creditos">Créditos</button>
+            </div>
+
+            <img src="img/firmaUNAM.png" alt="UNAM" class="footer-logo">
+        </div>
+    </footer>
+
+    <!-- Modal de créditos -->
+    <div id="modal-creditos" class="modal">
+        <div class="modal-content">
+            <h3>Créditos de la página</h3>
+            <div class="creditos-separadores">
+                <p>Diseño y desarrollo: Isaias Castillo, Carlos Tlecuitl</p>
+                <p>Fotografías: </p>
+                <p>Plantel 2 “Erasmo Castellanos Quinto”</p>
+            </div>
+            <button id="cerrar-modal" class="btn-cerrar">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        const btnCreditos = document.getElementById("btn-creditos");
+        const modal = document.getElementById("modal-creditos");
+        const btnCerrar = document.getElementById("cerrar-modal");
+
+        btnCreditos.addEventListener("click", () => {
+            modal.style.display = "block";
+        });
+
+        btnCerrar.addEventListener("click", () => {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+
+    <script>
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const toggleText = menuToggle.querySelector('.toggle-text');
+        const icon = menuToggle.querySelector('i');
+
+        // Función para alternar el menú
+        function toggleMenu() {
+            navMenu.classList.toggle('active');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+
+            if (navMenu.classList.contains('active')) {
+                toggleText.textContent = 'Cerrar';
+            } else {
+                toggleText.textContent = 'Menú';
+            }
+        }
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // Cerrar el menú al hacer clic en un enlace
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Solo cierra si está abierto
+                if (navMenu.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>
