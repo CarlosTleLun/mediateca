@@ -2024,4 +2024,46 @@ tbody tr:hover {
 .aviso-enlace:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+
+}
+
+.croquis {
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor */
+    max-width: 600px;
+    /* Limita el tamaño máximo */
+    height: auto;
+    /* Mantiene proporción original */
+    border-radius: 12px;
+    /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Animación al pasar el mouse */
+    display: block;
+    /* Evita espacios extra debajo de la imagen */
+    margin: 20px auto;
+    /* Centra la imagen horizontalmente */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .croquis {
+        max-width: 90%;
+        /* Se adapta al ancho de pantallas medianas */
+        margin: 15px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .croquis {
+        max-width: 100%;
+        /* Ocupa casi todo el ancho en móviles */
+        border-radius: 8px;
+        /* Bordes un poco más pequeños */
+        margin: 10px auto;
+    }
 }
